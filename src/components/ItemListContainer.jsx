@@ -1,9 +1,15 @@
 import React from 'react'
+import {BodyIndex} from './Style'
 
-const ItemListContainer = () => {
+
+const ItemListContainer = ({ greeting }) => {
   return (
     <>
+      <BodyIndex>
+        <h2>{greeting}</h2>
+      </BodyIndex>
     </>
+
   )
 }
 
