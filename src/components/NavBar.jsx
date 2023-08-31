@@ -1,28 +1,39 @@
 import React from 'react'
 import CartWidget from './CartWidget'
 import Logo from '../assets/img/main-logo.png'
-import { Header, Nav } from './Style'
+import { Header, Nav, BgDiv } from './Style'
 import {
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
 } from '@chakra-ui/react'
+import BurgerButton from './BurgerButton'
+import {useState} from "react";
 
 const NavBar = () => {
+
+  const [clicked, setClicked] = useState (false)
+  const handleClick = () =>{
+    setClicked(!clicked)
+  }
   return (
     <>
       <Header>
         <Nav>
+          <div className='burger'>
+            <BurgerButton clicked={clicked} handleClick={handleClick}/>
+          </div>
+          <BgDiv className={`initial ${clicked ? 'active' : ''}`}></BgDiv>
           <div className='logo'>
             <img src={Logo} alt="logo" />
           </div>
-          <div className='categories'>
+          <div className={`categories ${clicked ? 'active' : ''}`}>
             <div>
-              OUR MENU
+              <a href="">OUR MENU</a>
             </div>
             <div>
-              BOOK A TABLE
+              <a href="">BOOK A TABLE</a>
             </div>
             <div>
               <Menu>
