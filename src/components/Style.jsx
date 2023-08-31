@@ -22,7 +22,7 @@ export const Nav = styled.nav`
         right:0;
         margin-left:auto;
         color:black;
-        transition: all . 5s ease;
+        transition: all .5s ease;
         .categories-button{
             letter-spacing: .2rem;
         }
@@ -83,6 +83,8 @@ export const BodyIndex = styled.div`
         align-items: center;
         text-align: center;
         padding: 70px;
+        position:sticky;
+        z-index:-2;
     }
 `
 
@@ -94,7 +96,7 @@ export const BgDiv = styled.div`
     left:-1000px;
     height:100%;
     z-index:-1;
-    transition: all. 6s ease;
+    transition: all .6s ease;
     &.active{
         top:0;
         left:0;
