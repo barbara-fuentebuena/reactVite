@@ -30,10 +30,10 @@ const NavBar = () => {
           </div>
           <div className={`categories ${clicked ? 'active' : ''}`}>
             <div>
-              <a onClick={handleClick} href="#h">OUR MENU</a>
+              <a href="">OUR MENU</a>
             </div>
             <div>
-              <a onClick={handleClick}  href="#h">BOOK A TABLE</a>
+              <a href="">BOOK A TABLE</a>
             </div>
             <div>
               <Menu>
@@ -41,10 +41,10 @@ const NavBar = () => {
                   ONLINE ORDER
                 </MenuButton>
                 <MenuList className='categories-items'>
-                  <MenuItem onClick={handleClick} >Pizzas</MenuItem>
-                  <MenuItem onClick={handleClick} >Pastas</MenuItem>
-                  <MenuItem onClick={handleClick} >Calzone</MenuItem>
-                  <MenuItem onClick={handleClick} >Desserts</MenuItem>
+                  <MenuItem>Pizzas</MenuItem>
+                  <MenuItem>Pastas</MenuItem>
+                  <MenuItem>Calzone</MenuItem>
+                  <MenuItem>Desserts</MenuItem>
                 </MenuList>
               </Menu>
             </div>
