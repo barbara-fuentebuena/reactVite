@@ -73,7 +73,7 @@ export const Nav = styled.nav`
     }
 `
 export const BodyIndex = styled.div`
-    z-index:-1;
+    z-index: -2;
     .buttons-container{
         h2{
             display:flex;
@@ -96,13 +96,13 @@ export const BgDiv = styled.div`
     top:-1000px;
     left:-1000px;
     height:100%;
-    z-index:-1;
+    z-index:-2;
     transition: all .6s ease;
     &.active{
         top:0;
         left:0;
         width:100%;
-        height:100%;
+        height:30%;
         border-radius:0 0 80% 0 ;
     }
 `
@@ -122,4 +122,17 @@ export const ButtonsCalculator = styled.div`
         }
     }
     
+`
+
+export const CardsContainer = styled.div`
+    display:flex;
+    justify-content:center;
+    @media(max-width:768px){
+            flex-direction: column;
+            align-items:center;
+        }
+    .card{
+        padding:10px;
+        margin:10px
+    }
 `
