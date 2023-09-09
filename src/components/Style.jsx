@@ -73,18 +73,19 @@ export const Nav = styled.nav`
     }
 `
 export const BodyIndex = styled.div`
-    h2{
-        margin: auto;
-        font-size: 40px;
-        font-weight: lighter;
+    z-index:-1;
+    .buttons-container{
+        h2{
+            display:flex;
+            justify-content:center;
+            align-content:center;
+            font-size: 40px;
+            font-weight: lighter;
+            padding: 70px;
+        }
         letter-spacing: .2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 70px;
-        position:sticky;
-        z-index:-2;
+        display: block;
+        position:sticky;   
     }
 `
 
@@ -104,4 +105,21 @@ export const BgDiv = styled.div`
         height:100%;
         border-radius:0 0 80% 0 ;
     }
+`
+
+export const ButtonsCalculator = styled.div`
+    display: flex;
+    justify-content:center;
+    align-content:center;
+    .button-calculator{
+        background-color: black;
+        color: white;
+        padding:10px;
+        margin:5px;
+        width: 10%;
+        @media(max-width:700px){
+            width: 25%;
+        }
+    }
+    
 `
