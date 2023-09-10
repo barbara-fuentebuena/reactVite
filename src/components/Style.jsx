@@ -45,12 +45,14 @@ export const Nav = styled.nav`
             position:absolute;
             margin-left:auto;
             margin-right:auto;
-            top:50%;
+            top:120px;
             left: 0;
             right:0;
             text-align:center;
             color:black;  
             letter-spacing: .2rem;
+            z-index: 200;
+            font-size: 25px;
         }
     .cart{
         display: flex;
@@ -73,7 +75,7 @@ export const Nav = styled.nav`
     }
 `
 export const BodyIndex = styled.div`
-    z-index: -2;
+    z-index: -200;
     .buttons-container{
         h2{
             display:flex;
@@ -96,14 +98,14 @@ export const BgDiv = styled.div`
     top:-2000px;
     left:-2000px;
     height:100%;
-    z-index:-2;
     transition: all .6s ease;
     &.active{
         top:0;
         left:0;
         width:100%;
-        height:30%;
+        height:400px;
         border-radius:0 0 80% 0 ;
+        z-index:1;
     }
 `
 
@@ -126,11 +128,8 @@ export const ButtonsCalculator = styled.div`
 
 export const CardsContainer = styled.div`
     display:flex;
+    flex-wrap: wrap;
     justify-content: center;
-    @media(max-width:768px){
-            flex-direction: column;
-            align-items:center;
-        }
     .card{
         padding:10px;
         margin:10px;

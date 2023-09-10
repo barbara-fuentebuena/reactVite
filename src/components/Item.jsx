@@ -1,10 +1,8 @@
 import React from 'react'
 import { Card, CardBody, Image, Stack, Heading, Text, Divider, CardFooter, ButtonGroup, Button } from '@chakra-ui/react';
-import { CardsContainer } from './Style'
 
 const Item = ({ name, price, description }) => {
   return (
-    <CardsContainer>
         <Card className='card' maxW='sm'>
           <CardBody>
             <Image
@@ -34,7 +32,6 @@ const Item = ({ name, price, description }) => {
             </ButtonGroup>
           </CardFooter>
         </Card>
-    </CardsContainer>
   )
 }
 

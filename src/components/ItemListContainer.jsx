@@ -11,7 +11,10 @@ const ItemListContainer = () => {
   const products = [
     {id: '1', name:'Pizza A', description:'Pizza description', price:80},
     {id: '2', name:'Pizza B', description:'Pizza description', price:95},
-    {id: '3', name:'Pizza C', description:'Pizza description', price:110}
+    {id: '3', name:'Pizza C', description:'Pizza description', price:110},
+    {id: '4', name:'Pizza D', description:'Pizza description', price:90},
+    {id: '5', name:'Pizza E', description:'Pizza description', price:105},
+    {id: '6', name:'Pizza F', description:'Pizza description', price:120}
   ]
 
   const showProducts = new Promise((resolve, reject)=>{
@@ -32,7 +35,6 @@ const ItemListContainer = () => {
   })
 
   return (
-    <>
       <BodyIndex>
         <div className='buttons-container'>
           <h2>{quantity}</h2>
@@ -44,8 +46,6 @@ const ItemListContainer = () => {
         </div>
         <ItemList products={products}/>
       </BodyIndex>
-    </>
-
   )
 }
 
