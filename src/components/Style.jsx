@@ -93,8 +93,8 @@ export const BgDiv = styled.div`
     position:absolute;
     background-color:red;
     width:100%;
-    top:-1000px;
-    left:-1000px;
+    top:-2000px;
+    left:-2000px;
     height:100%;
     z-index:-2;
     transition: all .6s ease;
@@ -126,13 +126,13 @@ export const ButtonsCalculator = styled.div`
 
 export const CardsContainer = styled.div`
     display:flex;
-    justify-content:center;
+    justify-content: center;
     @media(max-width:768px){
             flex-direction: column;
             align-items:center;
         }
     .card{
         padding:10px;
-        margin:10px
+        margin:10px;
     }
 `
