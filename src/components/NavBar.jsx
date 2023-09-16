@@ -9,12 +9,13 @@ import {
   MenuItem,
 } from '@chakra-ui/react'
 import BurgerButton from './BurgerButton'
-import {useState} from "react";
+import { useState } from "react";
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
 
-  const [clicked, setClicked] = useState (false)
-  const handleClick = () =>{
+  const [clicked, setClicked] = useState(false)
+  const handleClick = () => {
     setClicked(!clicked)
   }
   return (
@@ -22,11 +23,13 @@ const NavBar = () => {
       <Header>
         <Nav>
           <div className='burger'>
-            <BurgerButton clicked={clicked} handleClick={handleClick}/>
+            <BurgerButton clicked={clicked} handleClick={handleClick} />
           </div>
           <BgDiv className={`initial ${clicked ? 'active' : ''}`}></BgDiv>
           <div className='logo'>
-            <img src={Logo} alt="logo" />
+            <Link to={"/"}>
+              <img src={Logo} alt="logo" />
+            </Link>
           </div>
           <div className={`categories ${clicked ? 'active' : ''}`}>
             <div>
@@ -41,15 +44,31 @@ const NavBar = () => {
                   ONLINE ORDER
                 </MenuButton>
                 <MenuList className='categories-items'>
-                  <MenuItem>Pizzas</MenuItem>
-                  <MenuItem>Pastas</MenuItem>
-                  <MenuItem>Calzone</MenuItem>
-                  <MenuItem>Desserts</MenuItem>
+                  <Link to={`/category/Pizza`}>
+                    <MenuItem>
+                      Pizzas
+                    </MenuItem>
+                  </Link>
+                  <Link to={`/category/Pasta`}>
+                    <MenuItem>
+                      Pastas
+                    </MenuItem>
+                  </Link>
+                  <Link to={`/category/Calzone`}>
+                    <MenuItem>
+                      Calzones
+                    </MenuItem>
+                  </Link>
+                  <Link to={`/category/Dessert`}>
+                    <MenuItem>
+                      Desserts
+                    </MenuItem>
+                  </Link>
                 </MenuList>
               </Menu>
             </div>
           </div>
-          <div className='cart'><CartWidget /></div>
+          <div className='cart'><Link to={"/cart"}><CartWidget /></Link></div>
         </Nav>
       </Header>
     </>

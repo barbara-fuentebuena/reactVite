@@ -6,14 +6,10 @@ const ItemList = ({ products }) => {
   return (
     <CardsContainer>
       {
-        products.map((p, index) => {
+        products.map((product) => {
           return (
-            <Item
-              name={p.name}
-              price={p.price}
-              description={p.description}
-              key={index}
-            />
+            <Item key={product.id} id={product.id} name={product.name} price={product.price} description={product.description} />
+
           )
         })
       }

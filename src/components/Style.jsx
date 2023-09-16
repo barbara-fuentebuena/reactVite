@@ -49,15 +49,19 @@ export const Nav = styled.nav`
             left: 0;
             right:0;
             text-align:center;
-            color:black;  
+            color:white;  
             letter-spacing: .2rem;
             z-index: 200;
             font-size: 25px;
         }
     .cart{
         display: flex;
-        justify-content: center;      
-        align-items: center; 
+        justify-content: flex-end;
+        a{
+            display: flex;
+            justify-content: center;      
+            align-items: center; 
+        }
         p{
             color: white;
             padding: 10px;
@@ -93,7 +97,8 @@ export const BodyIndex = styled.div`
 
 export const BgDiv = styled.div`
     position:absolute;
-    background-color:red;
+    background-color:black;
+    opacity: 80%;
     width:100%;
     top:-2000px;
     left:-2000px;
@@ -135,3 +140,11 @@ export const CardsContainer = styled.div`
         margin:10px;
     }
 `
+
+export const CardDetailContainer = styled.div`
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin: 30px;
+`
+
