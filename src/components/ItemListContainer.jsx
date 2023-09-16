@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 
 const ItemListContainer = () => {
 
-  const [quantity, setQuantity] = useState(0)
+  
   
   const initialProducts = [
     {id: '1', name:'Pizza A', description:'Pizza description', price:80, category:'Pizza'},
@@ -49,14 +49,7 @@ const ItemListContainer = () => {
 
   return (
       <BodyIndex>
-        {/* <div className='buttons-container'>
-          <h2>{quantity}</h2>
-          <ButtonsCalculator className='buttons'>
-            <button className='button-calculator' onClick={() => setQuantity(quantity + 1)}>Add</button>
-            <button className='button-calculator' onClick={() =>
-              setQuantity(quantity >= 1 ? quantity - 1 : 0)}>Delete</button>
-          </ButtonsCalculator>
-        </div> */}
+
         <ItemList products={products}/>
       </BodyIndex>
   )

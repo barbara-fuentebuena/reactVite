@@ -85,13 +85,17 @@ export const BodyIndex = styled.div`
             display:flex;
             justify-content:center;
             align-content:center;
-            font-size: 40px;
-            font-weight: lighter;
-            padding: 70px;
+            font-size: 20px;
+            margin: 5px;
+            padding: 10px;
+            background-color: #f1efef;
         }
         letter-spacing: .2rem;
         display: block;
-        position:sticky;   
+        position:sticky; 
+        @media(max-width:700px){
+        display: flex;
+    }  
     }
 `
 
@@ -118,15 +122,16 @@ export const ButtonsCalculator = styled.div`
     display: flex;
     justify-content:center;
     align-content:center;
+    @media(max-width:700px){
+        justify-content: flex-start;
+    }
     .button-calculator{
-        background-color: black;
-        color: white;
-        padding:10px;
-        margin:5px;
-        width: 10%;
+        color: black;
+        width: 100%;
+        font-size: 20px;
         @media(max-width:700px){
-            width: 25%;
-        }
+        margin-inline:10px;
+    }  
     }
     
 `
@@ -147,4 +152,5 @@ export const CardDetailContainer = styled.div`
     align-items: center;
     margin: 30px;
 `
+
 

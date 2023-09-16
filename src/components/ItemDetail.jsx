@@ -1,8 +1,11 @@
 import React from 'react';
 import { Card, CardBody, Image, Stack, Heading, Text, Divider, CardFooter, ButtonGroup, Button } from '@chakra-ui/react';
-import { CardDetailContainer } from './Style';
+import { CardDetailContainer, ButtonsCalculator } from './Style';
+import { useState } from 'react';
 
 const ItemDetail = ({ product }) => {
+
+  const [quantity, setQuantity] = useState(0)
   return (
     <CardDetailContainer>
       <Card
@@ -25,10 +28,24 @@ const ItemDetail = ({ product }) => {
               DKK {product.price}
             </Text>
           </CardBody>
-          <CardFooter>
+          <CardFooter display={'block'}>
             <Button variant='solid' colorScheme='blue'>
               Add to Cart
+              
+
+
             </Button>
+
+            <div className='buttons-container'>
+          <h2>{quantity}</h2>
+          <ButtonsCalculator className='buttons'>
+            <button className='button-calculator' onClick={() => setQuantity(quantity + 1)}>+</button>
+            <button className='button-calculator' onClick={() =>
+              setQuantity(quantity >= 1 ? quantity - 1 : 0)}>-</button>
+          </ButtonsCalculator>
+        </div>
+
+       
           </CardFooter>
         </Stack>
       </Card>

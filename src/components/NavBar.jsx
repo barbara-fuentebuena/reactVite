@@ -15,9 +15,11 @@ import { Link } from 'react-router-dom'
 const NavBar = () => {
 
   const [clicked, setClicked] = useState(false)
+
   const handleClick = () => {
     setClicked(!clicked)
   }
+
   return (
     <>
       <Header>

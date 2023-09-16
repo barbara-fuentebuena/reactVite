@@ -16,8 +16,7 @@ function App() {
       <BrowserRouter>
         <NavBar/>
         <Routes>
-          {/* <ItemListContainer /> */}
-          {/* <ItemDetailContainer/> */}
+
 
           <Route exact path="/" element={<Home/>}/>
           <Route exact path="/cart" element={<Cart/>}/>
