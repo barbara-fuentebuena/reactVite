@@ -20,6 +20,12 @@ const NavBar = () => {
     setClicked(!clicked)
   }
 
+  const handleMenuItemClick = () => {
+    if (clicked) {
+      setClicked(false);
+    }
+  };
+
   return (
     <>
       <Header>
@@ -45,23 +51,23 @@ const NavBar = () => {
                 <MenuButton className='categories-button'>
                   ONLINE ORDER
                 </MenuButton>
-                <MenuList className='categories-items'>
-                  <Link to={`/category/Pizza`}>
+                <MenuList className={`categories-items ${clicked ? 'active' : ''}`}>
+                  <Link to={`/category/Pizza`} onClick={handleMenuItemClick}>
                     <MenuItem>
                       Pizzas
                     </MenuItem>
                   </Link>
-                  <Link to={`/category/Pasta`}>
+                  <Link to={`/category/Pasta`} onClick={handleMenuItemClick}>
                     <MenuItem>
                       Pastas
                     </MenuItem>
                   </Link>
-                  <Link to={`/category/Calzone`}>
+                  <Link to={`/category/Calzone`} onClick={handleMenuItemClick}>
                     <MenuItem>
                       Calzones
                     </MenuItem>
                   </Link>
-                  <Link to={`/category/Dessert`}>
+                  <Link to={`/category/Dessert`} onClick={handleMenuItemClick}>
                     <MenuItem>
                       Desserts
                     </MenuItem>

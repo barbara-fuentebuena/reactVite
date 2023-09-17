@@ -31,21 +31,22 @@ const ItemDetail = ({ product }) => {
           <CardFooter display={'block'}>
             <Button variant='solid' colorScheme='blue'>
               Add to Cart
-              
+
 
 
             </Button>
 
             <div className='buttons-container'>
-          <h2>{quantity}</h2>
-          <ButtonsCalculator className='buttons'>
-            <button className='button-calculator' onClick={() => setQuantity(quantity + 1)}>+</button>
-            <button className='button-calculator' onClick={() =>
-              setQuantity(quantity >= 1 ? quantity - 1 : 0)}>-</button>
-          </ButtonsCalculator>
-        </div>
+              <h2>{quantity}</h2>
+              <ButtonsCalculator className='buttons'>
+                <button className='button-calculator' onClick={() =>
+                  setQuantity(quantity >= 1 ? quantity - 1 : 0)}>-</button>
+                <button className='button-calculator' onClick={() => setQuantity(quantity + 1)}>+</button>
 
-       
+              </ButtonsCalculator>
+            </div>
+
+
           </CardFooter>
         </Stack>
       </Card>

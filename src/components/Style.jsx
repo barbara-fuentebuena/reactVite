@@ -91,11 +91,8 @@ export const BodyIndex = styled.div`
             background-color: #f1efef;
         }
         letter-spacing: .2rem;
-        display: block;
-        position:sticky; 
-        @media(max-width:700px){
         display: flex;
-    }  
+        position:sticky; 
     }
 `
 
@@ -129,9 +126,7 @@ export const ButtonsCalculator = styled.div`
         color: black;
         width: 100%;
         font-size: 20px;
-        @media(max-width:700px){
-        margin-inline:10px;
-    }  
+        margin-inline:10px; 
     }
     
 `
