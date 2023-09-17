@@ -1,5 +1,6 @@
 
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 import ItemListContainer from './components/ItemListContainer'
 import ItemDetail from './components/ItemDetailContainer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -25,6 +26,7 @@ function App() {
 
 
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </>
 

@@ -28,7 +28,6 @@ const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    // Fetch the product based on the ID (you can modify this based on your data source)
     const fetchedProduct = initialProducts.find(item => item.id === id);
     setProduct(fetchedProduct);
   }, [id]);

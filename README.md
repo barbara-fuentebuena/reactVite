@@ -1,6 +1,6 @@
 # React + Vite
 
-Welcome to Pizzeria Napoles!
+Welcome to Pizzeria Napoli!
 
 To navigate our website and find our products for online order, please follow the instructions:
 

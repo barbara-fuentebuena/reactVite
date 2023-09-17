@@ -8,6 +8,12 @@ export const Nav = styled.nav`
     display: grid;
     grid-template-columns: 1fr 4fr 1fr 0.1fr;
     padding:10px;
+    position: fixed;
+    background-color: black;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    left: 0;
     .logo{
         width: 70px;
         height: auto;   
@@ -80,6 +86,8 @@ export const Nav = styled.nav`
 `
 export const BodyIndex = styled.div`
     z-index: -200;
+    margin-top: 120px;
+    margin-bottom: 15px;
     .buttons-container{
         h2{
             display:flex;
@@ -148,4 +156,129 @@ export const CardDetailContainer = styled.div`
     margin: 30px;
 `
 
+export const MainBanner = styled.div`
+    .container-banner{
+        position: relative;
+        margin-top: 75px;
+        img{
+            filter: brightness(50%);
+            width: 100%;
+        }
+    .main-title{
+        width: 100%!important;
+        position:absolute;
+        padding: 20px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        h1{
+        font-family:'Croissant One', cursive;
+        font-size: 3.5rem;
+        color: white;
+        @media(max-width:768px){
+            font-size: 2rem;
+        }      
+    }
+    .button-banner{
+        margin: 20px;
+        font-size: 1.25rem;
+        padding: 10px;
+        background-color: #9d7101d5;
+        color: white;
+        letter-spacing: .2rem;
+        &:hover{
+            background-color: #674b02d4;
+        }
+        @media(max-width:768px){
+            font-size: 1rem;
+        } 
+    }
+}}
+`
 
+export const MenuTitle = styled.h2`
+    font-size: 2.5rem;
+    text-align: center;
+    font-family:'Croissant One', cursive;
+    padding: 40px;
+    
+`
+
+export const MenuCategory = styled.div`
+    margin: auto;
+    width: 70%;
+    padding: 20px;
+    letter-spacing: .2rem;
+    @media(max-width:768px){
+        width: 90%;
+        }    
+    h3{
+        font-size:1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .menu-product{
+        padding: 10px;
+        background-color: white;
+        .menu-product-detail{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h4{
+            font-size: 1.15rem;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            }
+            .text-description{
+                margin-bottom: 10px;
+                color: grey;
+                font-style:italic;
+            }
+        }
+    }
+`
+
+export const FooterContainer = styled.div`
+    background-color: black;
+    color: #b9b6b6;
+    letter-spacing: .2rem;
+    .footer-details-container{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        @media(max-width:768px){
+        display: block;
+        text-align: center;
+    }
+    }
+    .footer-contact-details{
+        padding: 30px;
+        h5{
+            padding: 10px;
+        }
+    }
+    .footer-hours-details{
+        padding: 20px;
+        text-align: center;
+        border: dotted 0.1px white;
+        margin: 20px;
+        h5{
+            padding: 10px; 
+        }
+        p{
+            padding-left: 10px;
+            letter-spacing: 0rem;
+        }
+        .footer-subtitle{
+            font-weight: bold;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    }
+    .footer-developer-container{
+        padding: 20px;
+        text-align: center;
+        font-size: 0.75rem;
+    }
+`

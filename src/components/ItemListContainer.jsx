@@ -49,7 +49,6 @@ const ItemListContainer = () => {
 
   return (
       <BodyIndex>
-
         <ItemList products={products}/>
       </BodyIndex>
   )
