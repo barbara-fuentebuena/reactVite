@@ -9,8 +9,8 @@ import {
   MenuItem,
 } from '@chakra-ui/react'
 import BurgerButton from './BurgerButton'
-import { useState } from "react";
-import { Link } from 'react-router-dom'
+import { useState  } from "react";
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
 
@@ -41,10 +41,12 @@ const NavBar = () => {
           </div>
           <div className={`categories ${clicked ? 'active' : ''}`}>
             <div>
-              <a href="">OUR MENU</a>
+              <a href='/'>
+                OUR MENU
+              </a>
             </div>
             <div>
-              <a href="">BOOK A TABLE</a>
+              <Link to={'/booking'}>BOOK A TABLE</Link>
             </div>
             <div>
               <Menu>

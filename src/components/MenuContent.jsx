@@ -2,7 +2,7 @@ import React from 'react'
 import { Divider } from '@chakra-ui/react'
 import { MenuCategory, MenuTitle } from './Style';
 
-const Menu = () => {
+const MenuContent = () => {
 
     const initialProducts = [
         { id: '1', name: 'Pizza A', description: 'Pizza description', price: 80, category: 'Pizza' },
@@ -19,7 +19,7 @@ const Menu = () => {
 
 
     return (
-        <div>
+        <div id="menu">
             <MenuTitle>Menu</MenuTitle>
             <MenuCategory>
                 <h3>Pizzas</h3>
@@ -114,5 +114,5 @@ const Menu = () => {
     )
 }
 
-export default Menu
+export default MenuContent
 

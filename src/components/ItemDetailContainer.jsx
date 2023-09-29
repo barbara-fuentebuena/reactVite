@@ -35,14 +35,6 @@ const ItemDetailContainer = () => {
   
   return (
       <BodyIndex>
-        {/* <div className='buttons-container'>
-          <h2>{quantity}</h2>
-          <ButtonsCalculator className='buttons'>
-            <button className='button-calculator' onClick={() => setQuantity(quantity + 1)}>Add</button>
-            <button className='button-calculator' onClick={() =>
-              setQuantity(quantity >= 1 ? quantity - 1 : 0)}>Delete</button>
-          </ButtonsCalculator>
-        </div> */}
         {product ? <ItemDetail product={product} /> : null}
       </BodyIndex>
   )

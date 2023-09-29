@@ -1,11 +1,31 @@
 import React from 'react';
-import { Card, CardBody, Image, Stack, Heading, Text, Divider, CardFooter, ButtonGroup, Button } from '@chakra-ui/react';
-import { CardDetailContainer, ButtonsCalculator } from './Style';
-import { useState } from 'react';
+import { Card, CardBody, Image, Stack, Heading, Text, CardFooter, Button } from '@chakra-ui/react';
+import { CardDetailContainer} from './Style';
+import ItemCount from './ItemCount';
+import { CartContext } from '../context/ShoppingCartContext';
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const ItemDetail = ({ product }) => {
 
-  const [quantity, setQuantity] = useState(0)
+  const { addItem } = useContext(CartContext);
+  const navigate = useNavigate();
+
+  const [addedQuantity, setAddedQuantity] = useState(0);
+  const [showFinishButton, setShowFinishButton] = useState(false);
+
+  const handleAddToCart = (quantity) => {
+    const productToAdd = product;
+    addItem(productToAdd, quantity);
+    setAddedQuantity(quantity);
+    setShowFinishButton(true);
+  };
+
+  const handleFinishPurchase = () => {
+    navigate('/cart');
+  };
+  
   return (
     <CardDetailContainer>
       <Card
@@ -29,23 +49,19 @@ const ItemDetail = ({ product }) => {
             </Text>
           </CardBody>
           <CardFooter display={'block'}>
-            <Button variant='solid' colorScheme='blue'>
-              Add to Cart
-
-
-
-            </Button>
-
-            <div className='buttons-container'>
-              <h2>{quantity}</h2>
-              <ButtonsCalculator className='buttons'>
-                <button className='button-calculator' onClick={() =>
-                  setQuantity(quantity >= 1 ? quantity - 1 : 0)}>-</button>
-                <button className='button-calculator' onClick={() => setQuantity(quantity + 1)}>+</button>
-
-              </ButtonsCalculator>
-            </div>
-
+          
+            {addedQuantity === 0 ? (
+                <ItemCount onAdd={handleAddToCart} />
+              ) : (
+                <>
+                  <Button variant='solid' colorScheme='blue' mt={4} onClick={handleFinishPurchase}>
+                    Finish purcharse
+                  </Button>
+                  <Button variant='outline' colorScheme='teal' mt={4} ml={4} onClick={() => navigate(`/products`)}>
+                    Continue shopping
+                  </Button>
+                </>
+              )}
 
           </CardFooter>
         </Stack>

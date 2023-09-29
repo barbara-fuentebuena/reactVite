@@ -88,20 +88,6 @@ export const BodyIndex = styled.div`
     z-index: -200;
     margin-top: 120px;
     margin-bottom: 15px;
-    .buttons-container{
-        h2{
-            display:flex;
-            justify-content:center;
-            align-content:center;
-            font-size: 20px;
-            margin: 5px;
-            padding: 10px;
-            background-color: #f1efef;
-        }
-        letter-spacing: .2rem;
-        display: flex;
-        position:sticky; 
-    }
 `
 
 export const BgDiv = styled.div`
@@ -124,20 +110,44 @@ export const BgDiv = styled.div`
 `
 
 export const ButtonsCalculator = styled.div`
-    display: flex;
-    justify-content:center;
-    align-content:center;
-    @media(max-width:700px){
-        justify-content: flex-start;
+    display: block;
+    margin: 10px;
+    position:sticky; 
+    h2{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size: 17px;
+            border-top: #ddd8d8 solid 1px;
+            border-bottom: #ddd8d8 solid 1px;
+            padding: 7px;
+            padding-inline:15px;
+        }     
+    .buttons{
+        display: flex;
+        justify-content:center;
+        align-content:center;
+        margin: 5px;
+        @media(max-width:700px){
+            justify-content: flex-start;
+        }
+        .button-calculator{
+            color: black;
+            width: 100%;
+            font-size: 20px;
+            border: #ddd8d8 solid 1px;
+            padding: 5px;
+            padding-inline:5px;
+            &:hover{
+                background-color: #ddd8d8;
+            }
+        }
+    } 
+    .buttons-cart{
+        margin: 5px;
     }
-    .button-calculator{
-        color: black;
-        width: 100%;
-        font-size: 20px;
-        margin-inline:10px; 
-    }
-    
 `
+
 
 export const CardsContainer = styled.div`
     display:flex;
@@ -160,9 +170,16 @@ export const MainBanner = styled.div`
     .container-banner{
         position: relative;
         margin-top: 75px;
+        @media(max-width:768px){
+            height: 500px;
+        }    
         img{
             filter: brightness(50%);
             width: 100%;
+            @media(max-width:768px){
+            height: 500px;
+            object-fit: cover
+        }   
         }
     .main-title{
         width: 100%!important;
@@ -182,7 +199,7 @@ export const MainBanner = styled.div`
     }
     .button-banner{
         margin: 20px;
-        font-size: 1.25rem;
+        font-size: 1rem;
         padding: 10px;
         background-color: #9d7101d5;
         color: white;
