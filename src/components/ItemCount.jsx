@@ -36,8 +36,6 @@ const ItemCount = ({ onAdd }) => {
                 <button className='button-calculator' onClick={handleIncrement}>+</button>
 
             </div>
-
-
             <div className='buttons-cart'>
                 <Button colorScheme="blue" onClick={clear} mr={2}>
                     Clear

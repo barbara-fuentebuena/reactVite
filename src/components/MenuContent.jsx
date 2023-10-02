@@ -1,22 +1,38 @@
-import React from 'react'
-import { Divider } from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react';
+import { Divider } from '@chakra-ui/react';
 import { MenuCategory, MenuTitle } from './Style';
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { useParams } from 'react-router-dom';
+
 
 const MenuContent = () => {
+    const { category } = useParams();
+    const [products, setProducts] = useState([]);
 
-    const initialProducts = [
-        { id: '1', name: 'Pizza A', description: 'Pizza description', price: 80, category: 'Pizza' },
-        { id: '2', name: 'Pizza B', description: 'Pizza description', price: 95, category: 'Pizza' },
-        { id: '3', name: 'Pizza C', description: 'Pizza description', price: 110, category: 'Pizza' },
-        { id: '4', name: 'Calzone A', description: 'Calzone description', price: 120, category: 'Calzone' },
-        { id: '5', name: 'Calzone B', description: 'Calzone description', price: 90, category: 'Calzone' },
-        { id: '6', name: 'Calzone C', description: 'Calzone description', price: 105, category: 'Calzone' },
-        { id: '7', name: 'Pasta A', description: 'Pasta description', price: 105, category: 'Pasta' },
-        { id: '8', name: 'Pasta B', description: 'Pasta description', price: 105, category: 'Pasta' },
-        { id: '9', name: 'Dessert A', description: 'Dessert description', price: 105, category: 'Dessert' },
-        { id: '10', name: 'Dessert B', description: 'Dessert description', price: 105, category: 'Dessert' },
-    ];
+    useEffect(() => {
+        const fetchData = async () => {
+            const db = getFirestore();
+            const itemsCollection = collection(db, 'food');
 
+            try {
+                const snapshot = await getDocs(itemsCollection);
+
+                const filteredProducts =
+                    category && category !== 'all'
+                        ? snapshot.docs
+                            .map(doc => ({ id: doc.id, ...doc.data() }))
+                            .filter(product => product.category.toLowerCase() === category.toLowerCase())
+                        : snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+                console.log('Products: ', filteredProducts);
+                setProducts(filteredProducts);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, [category]);
 
     return (
         <div id="menu">
@@ -24,8 +40,8 @@ const MenuContent = () => {
             <MenuCategory>
                 <h3>Pizzas</h3>
                 <div className='menu-product'>
-                    {initialProducts.map((p) => {
-                        if (p.category === `Pizza`) {
+                    {products.map((p) => {
+                        if (p.category === `pizza`) {
                             return (
                                 <>
                                     <div className='menu-product-detail'>
@@ -39,15 +55,31 @@ const MenuContent = () => {
                                 </>
                             )
                         }
-
                     })}
                 </div>
-            </MenuCategory>
-            <MenuCategory>
+                <h3>Calzone</h3>
+                <div className='menu-product'>
+                    {products.map((p) => {
+                        if (p.category === `calzone`) {
+                            return (
+                                <>
+                                    <div className='menu-product-detail'>
+                                        <div >
+                                            <h4>{p.name}</h4>
+                                            <p className='text-description'>{p.description}</p>
+                                        </div>
+                                        <p>{p.price} DKK</p>
+                                    </div>
+                                    <Divider />
+                                </>
+                            )
+                        }
+                    })}
+                </div>
                 <h3>Pastas</h3>
                 <div className='menu-product'>
-                    {initialProducts.map((p) => {
-                        if (p.category === `Pasta`) {
+                    {products.map((p) => {
+                        if (p.category === `pasta`) {
                             return (
                                 <>
                                     <div className='menu-product-detail'>
@@ -61,37 +93,12 @@ const MenuContent = () => {
                                 </>
                             )
                         }
-
                     })}
                 </div>
-            </MenuCategory>
-            <MenuCategory>
-                <h3>Calzones</h3>
-                <div className='menu-product'>
-                    {initialProducts.map((p) => {
-                        if (p.category === `Calzone`) {
-                            return (
-                                <>
-                                    <div className='menu-product-detail'>
-                                        <div >
-                                            <h4>{p.name}</h4>
-                                            <p className='text-description'>{p.description}</p>
-                                        </div>
-                                        <p>{p.price} DKK</p>
-                                    </div>
-                                    <Divider />
-                                </>
-                            )
-                        }
-
-                    })}
-                </div>
-            </MenuCategory>
-            <MenuCategory>
                 <h3>Desserts</h3>
                 <div className='menu-product'>
-                    {initialProducts.map((p) => {
-                        if (p.category === `Dessert`) {
+                    {products.map((p) => {
+                        if (p.category === `dessert`) {
                             return (
                                 <>
                                     <div className='menu-product-detail'>
@@ -105,14 +112,13 @@ const MenuContent = () => {
                                 </>
                             )
                         }
-
                     })}
                 </div>
             </MenuCategory>
+
         </div>
+    );
+};
 
-    )
-}
-
-export default MenuContent
+export default MenuContent;
 

@@ -10,6 +10,7 @@ const Loader = () => {
                 emptyColor='gray.200'
                 color='blue.500'
                 size='xl'
+                margin={5}
             /></>
     )
 }

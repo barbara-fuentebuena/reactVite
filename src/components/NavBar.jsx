@@ -41,12 +41,12 @@ const NavBar = () => {
           </div>
           <div className={`categories ${clicked ? 'active' : ''}`}>
             <div>
-              <a href='/'>
+              <Link to={'/menu'} onClick={handleMenuItemClick}>
                 OUR MENU
-              </a>
+              </Link>
             </div>
             <div>
-              <Link to={'/booking'}>BOOK A TABLE</Link>
+              <Link to={'/booking'} onClick={handleMenuItemClick}>BOOK A TABLE</Link>
             </div>
             <div>
               <Menu>

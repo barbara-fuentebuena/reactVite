@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <>
-      <MainBanner>
+      <MainBanner className='main-banner'>
         <div className='container-banner'>
           <img src={Banner} alt="main-banner" />
           <div className='main-title'>

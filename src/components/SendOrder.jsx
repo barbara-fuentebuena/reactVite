@@ -1,11 +1,13 @@
 import React from 'react'
-import { BodyIndex } from './Style'
+import { BodyIndex, FormContainer } from './Style'
 import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/ShoppingCartContext';
-import { Select, Textarea, Button } from '@chakra-ui/react';
+import { Select, Textarea, Button, Input } from '@chakra-ui/react';
 import Address from './Address';
 import Loader from './Loader'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SendOrder = () => {
 
@@ -33,7 +35,7 @@ const SendOrder = () => {
 
 
         if (name === '' || email === '' || isAddressEmpty) {
-            return alert('You need to complete your information');
+            return toast.error('You need to complete all the fields')
         }
 
         setLoading(true);
@@ -49,17 +51,19 @@ const SendOrder = () => {
 
 
         <BodyIndex>
+            <FormContainer>
+                <h1>Finish your purchase</h1>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className='formTextDetails'>
                     <h3>Full name</h3>
-                    <input type="text" onChange={(e) => setName(e.target.value)} placeholder='insert name' />
+                    <Input type="text" onChange={(e) => setName(e.target.value)} placeholder='Insert your full name' />
                 </div>
-                <div>
+                <div className='formTextDetails'>
                     <h3>Email</h3>
-                    <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder='insert email' />
+                    <Input type="email" onChange={(e) => setEmail(e.target.value)} placeholder='Insert your email' />
                 </div>
-                <div>
-                    <h3>Would you like to pick it up at our restaurant or get it delivered to your home?</h3>
+                <div className='formTextDetails'>
+                    <h3>Choose home delivery or pick up</h3>
                     <Select placeholder='Select option' onChange={(e) => setDelivery(e.target.value)} value={delivery}>
                         <option value='option1'>Pick up (Pay at the counter)</option>
                         <option value='option2'>Delivery</option>
@@ -67,9 +71,9 @@ const SendOrder = () => {
                 </div>
                 {delivery === 'option2' && (<Address address={address} setAddress={setAddress}
                 />)}
-                <div>
+                <div className='formTextDetails'>
                     <h3>Would you like to tell us anything special?</h3>
-                    <Textarea placeholder='Insert allegies or any message you would like us to received' />
+                    <Textarea placeholder='Insert allegies or any special requirement' />
                 </div>
 
 
@@ -78,6 +82,7 @@ const SendOrder = () => {
                     {loading && <Loader />}
                 </div>
             </form>
+            </FormContainer>
         </BodyIndex>
 
     )

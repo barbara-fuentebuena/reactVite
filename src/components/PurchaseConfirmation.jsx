@@ -1,6 +1,7 @@
 import React from 'react'
-import { BodyIndex } from './Style'
+import { BodyIndex, ConfirmationContainer } from './Style'
 import { useParams } from 'react-router-dom';
+import { CheckCircleIcon } from '@chakra-ui/icons';
 
 const PurchaseConfirmation = () => {
   const { email } = useParams();
@@ -9,11 +10,14 @@ const PurchaseConfirmation = () => {
   return (
     <>
       <BodyIndex>
-        <div>
+        <ConfirmationContainer>
+          <div>
+            <CheckCircleIcon boxSize={10} />
+          </div>
           <h1>Your order is now confirmed!</h1>
 
           <p>A confirmation email has been sent to {email}. Please check your inbox.</p>
-        </div>
+        </ConfirmationContainer>
       </BodyIndex>
     </>
   )

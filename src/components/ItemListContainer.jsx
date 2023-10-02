@@ -1,49 +1,43 @@
-import React from 'react'
-import { BodyIndex} from './Style'
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from 'react';
+import { BodyIndex } from './Style';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
-import { initialProducts } from './ItemDetailContainer'; 
-
-
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 const ItemListContainer = () => {
-
-  const [products, setProducts] = useState(initialProducts);
   const { category } = useParams();
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    if (category) {
-      const filteredProducts = initialProducts.filter(
-        (product) => product.category.toLowerCase() === category.toLowerCase()
-      );
-      setProducts(filteredProducts);
-    }
+    const fetchData = async () => {
+      const db = getFirestore();
+      const itemsCollection = collection(db, 'food');
+
+      try {
+        const snapshot = await getDocs(itemsCollection);
+
+        const filteredProducts =
+          category && category !== 'all'
+            ? snapshot.docs
+                .map(doc => ({ id: doc.id, ...doc.data() }))
+                .filter(product => product.category.toLowerCase() === category.toLowerCase())
+            : snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+        console.log('Products: ', filteredProducts);
+        setProducts(filteredProducts);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
   }, [category]);
 
-  const showProducts = new Promise((resolve, reject)=>{
-    if(products.length >0){
-      setTimeout(()=>{
-        resolve(products)
-      }, 5000)
-    }else{
-      reject("Products cannot be loaded.")
-    }
-  })
-
-  showProducts
-  .then((result)=>{
-    console.log(result)
-  }).catch((error)=>{
-    console.log(error)
-  })
-
-
   return (
-      <BodyIndex>
-        <ItemList products={products}/>
-      </BodyIndex>
-  )
-}
+    <BodyIndex>
+      <ItemList products={products} />
+    </BodyIndex>
+  );
+};
 
-export default ItemListContainer
+export default ItemListContainer;

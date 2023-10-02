@@ -178,7 +178,7 @@ export const MainBanner = styled.div`
             width: 100%;
             @media(max-width:768px){
             height: 500px;
-            object-fit: cover
+            object-fit: cover;
         }   
         }
     .main-title{
@@ -218,7 +218,7 @@ export const MenuTitle = styled.h2`
     font-size: 2.5rem;
     text-align: center;
     font-family:'Croissant One', cursive;
-    padding: 40px;
+    padding: 30px;
     
 `
 
@@ -231,9 +231,11 @@ export const MenuCategory = styled.div`
         width: 90%;
         }    
     h3{
-        font-size:1.5rem;
+        font-size:1.75rem;
         font-weight: bold;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+
     }
     .menu-product{
         padding: 10px;
@@ -248,13 +250,79 @@ export const MenuCategory = styled.div`
             margin-bottom: 10px;
             }
             .text-description{
+                font-size: 0.8rem;
                 margin-bottom: 10px;
                 color: grey;
                 font-style:italic;
+                white-space: wrap;
+            }
+        }
+        p{
+            white-space: nowrap;
+        }
+    }
+`
+
+export const FormContainer = styled.div`
+    margin: auto;
+    width: 70%;
+    border: solid black 1px;
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 80px;
+    h1{
+        font-size: 2.5rem;
+        font-family:'Croissant One', cursive;
+        padding: 30px;
+    }
+    .formTextDetails{
+        h3{
+            text-align: start   ;
+        }
+        padding: 20px;
+    }
+`
+
+export const PaymentContainer = styled.div`
+    background-color: #f3f1f1;
+    width: 80%;
+    margin: auto;
+    padding: 30px;
+    h3{
+        text-align: center ;
+        font-weight: bold;
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+    .formAddressDetails{
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        h4{
+            font-size: 1rem;
+            text-align: start;
+        }
+        .input-payment-details{
+            padding: 20px;
+            .input-payment-field{
+                background-color: white;
             }
         }
     }
 `
+
+export const ConfirmationContainer = styled.div`
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    h1{
+        font-size: 2rem;
+        font-weight: bold;
+        padding: 20px;
+    }
+`
+
+
 
 export const FooterContainer = styled.div`
     background-color: black;

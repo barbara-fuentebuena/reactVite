@@ -1,5 +1,7 @@
 import React from 'react'
-import { NumberInput, NumberInputField, NumberDecrementStepper, NumberIncrementStepper, NumberInputStepper } from '@chakra-ui/react';
+import { NumberInput, NumberInputField, NumberDecrementStepper, NumberIncrementStepper, NumberInputStepper, Input } from '@chakra-ui/react';
+import { PaymentContainer } from './Style';
+import { styled } from 'styled-components';
 
 const Address = ({ address, setAddress }) => {
 
@@ -9,66 +11,73 @@ const Address = ({ address, setAddress }) => {
     };
 
     return (
-        <>
+        <PaymentContainer>
             <div>
-                <h3>Insert your address</h3>
-                <div>
-                    <input
-                        type='text'
-                        placeholder='Street name'
-                        value={address.street}
-                        onChange={(e) => handleInputChange(e, 'street')}
-                    />
-                    <input
-                        type='number'
-                        placeholder='Street number'
-                        value={address.streetNumber}
-                        onChange={(e) => handleInputChange(e, 'streetNumber')}
-                    />
-                    <input
-                        type='number'
-                        placeholder='Postal code'
-                        value={address.postalCode}
-                        onChange={(e) => handleInputChange(e, 'postalCode')}
-                    />
-                    <input
-                        type='text'
-                        placeholder='City'
-                        value={address.city}
-                        onChange={(e) => handleInputChange(e, 'city')}
-                    />
+                <h3>Your address</h3>
+                <div className='formAddressDetails'>
+                    <div className='input-payment-details'>
+                        <Input margin={2} 
+                        className='input-payment-field'
+                            type='text'
+                            placeholder='Street name'
+                            value={address.street}
+                            onChange={(e) => handleInputChange(e, 'street')}
+                        />
+                        <Input margin={2}
+                        className='input-payment-field'
+                            type='number'
+                            placeholder='Street number'
+                            value={address.streetNumber}
+                            onChange={(e) => handleInputChange(e, 'streetNumber')}
+                        />
+                    </div>
+                    <div className='input-payment-details'>
+                        <Input margin={2}
+                        className='input-payment-field'
+                            type='number'
+                            placeholder='Postal code'
+                            value={address.postalCode}
+                            onChange={(e) => handleInputChange(e, 'postalCode')}
+                        />
+                        <Input margin={2}
+                        className='input-payment-field'
+                            type='text'
+                            placeholder='City'
+                            value={address.city}
+                            onChange={(e) => handleInputChange(e, 'city')}
+                        />
+                    </div>
                 </div>
             </div>
             <div>
                 <h3>Payment Information</h3>
-                <div>
-                    <div>
+                <div className='formAddressDetails'>
+                    <div className='input-payment-details'>
                         <h4>Card number</h4>
-                        <input type="number"
+                        <Input type="number"
                             placeholder='Insert card number'
+                            className='input-payment-field'
                             value={address.cardNumber}
                             onChange={(e) => handleInputChange(e, 'cardNumber')}
                         />
                     </div>
-                </div>
-                <div>
-                    <div>
-                        <h4>Name on Card</h4>
-                        <input type="text"
+                    <div className='input-payment-details'>
+                        <h4>Name on card</h4>
+                        <Input type="text"
+                        className='input-payment-field'
                             placeholder='Insert name on card'
                             value={address.cardName}
                             onChange={(e) => handleInputChange(e, 'cardName')}
                         />
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <h4>Expiry date</h4>
-                        <div>
+                <div >
+                    <h3>Expiry date</h3>
+                    <div className='formAddressDetails'>
+                        <div className='input-payment-details'>
                             <h4>Day</h4>
-                            <NumberInput defaultValue={15} min={1} max={31}
-                                
-                            >
+                            <NumberInput 
+                            className='input-payment-field'defaultValue={1} min={1} max={31}>
                                 <NumberInputField />
                                 <NumberInputStepper>
                                     <NumberIncrementStepper />
@@ -76,10 +85,10 @@ const Address = ({ address, setAddress }) => {
                                 </NumberInputStepper>
                             </NumberInput>
                         </div>
-                        <div>
+                        <div className='input-payment-details'>
                             <h4>Month</h4>
-                            <NumberInput defaultValue={7} min={1} max={12}
-                                
+                            <NumberInput className='input-payment-field'defaultValue={1} min={1} max={12}
+
                             >
                                 <NumberInputField />
                                 <NumberInputStepper>
@@ -88,20 +97,19 @@ const Address = ({ address, setAddress }) => {
                                 </NumberInputStepper>
                             </NumberInput>
                         </div>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <h4>CVV/CVC </h4>
-                        <input type="number"
-                            placeholder='Insert CVC'
-                            value={address.cardCode}
-                            onChange={(e) => handleInputChange(e, 'cardCode')}
-                        />
+                        <div className='input-payment-details'>
+                            <h4>CVV/CVC </h4>
+                            <Input type="number"
+                            className='input-payment-field'
+                                placeholder='Insert CVC'
+                                value={address.cardCode}
+                                onChange={(e) => handleInputChange(e, 'cardCode')}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        </>
+        </PaymentContainer>
     )
 }
 
