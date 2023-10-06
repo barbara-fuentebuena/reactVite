@@ -6,7 +6,7 @@ export const Header = styled.header`
 
 export const Nav = styled.nav`
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr 0.1fr;
+    grid-template-columns: 1fr 4fr 1fr;
     padding:10px;
     position: fixed;
     background-color: black;
@@ -14,12 +14,13 @@ export const Nav = styled.nav`
     width: 100%;
     top: 0;
     left: 0;
+    font-family: 'Montserrat', sans-serif;
     .logo{
         width: 70px;
-        height: auto;   
+        height: auto;
         display: flex;
         justify-content: center;
-        align-items: center;   
+        align-items: center;
     }
     .categories{
         position:absolute;
@@ -41,7 +42,7 @@ export const Nav = styled.nav`
             display: flex;
             justify-content: space-evenly;
             align-items: center;
-            color:white; 
+            color:white;
             letter-spacing: .2rem;
         }
     }
@@ -55,7 +56,7 @@ export const Nav = styled.nav`
             left: 0;
             right:0;
             text-align:center;
-            color:white;  
+            color:white;
             letter-spacing: .2rem;
             z-index: 200;
             font-size: 25px;
@@ -65,8 +66,8 @@ export const Nav = styled.nav`
         justify-content: flex-end;
         a{
             display: flex;
-            justify-content: center;      
-            align-items: center; 
+            justify-content: center;
+            align-items: center;
         }
         p{
             color: white;
@@ -88,6 +89,7 @@ export const BodyIndex = styled.div`
     z-index: -200;
     margin-top: 120px;
     margin-bottom: 15px;
+    min-height: 60vh;
 `
 
 export const BgDiv = styled.div`
@@ -112,37 +114,33 @@ export const BgDiv = styled.div`
 export const ButtonsCalculator = styled.div`
     display: block;
     margin: 10px;
-    position:sticky; 
+    position:sticky;
     h2{
             display:flex;
             justify-content:center;
             align-items:center;
-            font-size: 17px;
-            border-top: #ddd8d8 solid 1px;
-            border-bottom: #ddd8d8 solid 1px;
+            font-size: 20px;
             padding: 7px;
-            padding-inline:15px;
-        }     
+            padding-inline:12px;
+        }
     .buttons{
         display: flex;
         justify-content:center;
         align-content:center;
-        margin: 5px;
+        width: 50%;
+        margin: 10px auto;
         @media(max-width:700px){
             justify-content: flex-start;
         }
         .button-calculator{
             color: black;
             width: 100%;
-            font-size: 20px;
-            border: #ddd8d8 solid 1px;
-            padding: 5px;
-            padding-inline:5px;
+            font-size: 25px;
             &:hover{
-                background-color: #ddd8d8;
+                background-color: #f3f2f2;
             }
         }
-    } 
+    }
     .buttons-cart{
         margin: 5px;
     }
@@ -172,14 +170,12 @@ export const MainBanner = styled.div`
         margin-top: 75px;
         @media(max-width:768px){
             height: 500px;
-        }    
+        }
         img{
-            filter: brightness(50%);
-            width: 100%;
             @media(max-width:768px){
             height: 500px;
             object-fit: cover;
-        }   
+        }
         }
     .main-title{
         width: 100%!important;
@@ -190,52 +186,45 @@ export const MainBanner = styled.div`
         transform: translate(-50%, -50%);
         text-align: center;
         h1{
-        font-family:'Croissant One', cursive;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
         font-size: 3.5rem;
         color: white;
         @media(max-width:768px){
             font-size: 2rem;
-        }      
+        }
     }
     .button-banner{
         margin: 20px;
         font-size: 1rem;
         padding: 10px;
-        background-color: #9d7101d5;
+        background-color: #fb6407;
         color: white;
         letter-spacing: .2rem;
+        font-family: 'Montserrat', sans-serif;
         &:hover{
-            background-color: #674b02d4;
+            background-color: #ebeae9d3;
         }
         @media(max-width:768px){
             font-size: 1rem;
-        } 
+        }
     }
 }}
-`
-
-export const MenuTitle = styled.h2`
-    font-size: 2.5rem;
-    text-align: center;
-    font-family:'Croissant One', cursive;
-    padding: 30px;
-    
 `
 
 export const MenuCategory = styled.div`
     margin: auto;
     width: 70%;
     padding: 20px;
-    letter-spacing: .2rem;
     @media(max-width:768px){
-        width: 90%;
-        }    
-    h3{
-        font-size:1.75rem;
-        font-weight: bold;
+        width: 95%;
+        }
+    .menu-title{
+        font-family: 'Montserrat', sans-serif;
+        font-size:4rem;
+        font-weight: 900;
         margin-bottom: 20px;
         margin-top: 20px;
-
     }
     .menu-product{
         padding: 10px;
@@ -252,28 +241,60 @@ export const MenuCategory = styled.div`
             .text-description{
                 font-size: 0.8rem;
                 margin-bottom: 10px;
-                color: grey;
+                color: #fb6407;
                 font-style:italic;
                 white-space: wrap;
             }
         }
-        p{
+        .text-price{
             white-space: nowrap;
+            color: #fb6407;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
         }
+    }
+`
+
+export const SendOrderContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 100px;
+    .details-cart-background{
+        background-color: #f7f4f4;
+        width: 30%;
+        margin-top: 0;
+        border-radius: 10px;
+        border: solid 0.5px #bdbbbb;
+        margin-bottom: 20px;
     }
 `
 
 export const FormContainer = styled.div`
     margin: auto;
-    width: 70%;
-    border: solid black 1px;
     text-align: center;
     padding: 30px;
     margin-bottom: 80px;
+    width: 80%;
+    @media(max-width:768px){
+        width: 100%;
+        padding: 10px;
+    }
     h1{
-        font-size: 2.5rem;
-        font-family:'Croissant One', cursive;
-        padding: 30px;
+        font-size: 3rem;
+        font-weight: 900;
+        text-align: start;
+        margin-left: 20px;
+        font-family: 'Montserrat', sans-serif;
+    }
+    h2{
+        font-family: 'Montserrat', sans-serif;
+        color: #fb6407;
+        text-align: start;
+        margin-left: 20px;
+        font-style: italic;
+        letter-spacing: 1.5px;
     }
     .formTextDetails{
         h3{
@@ -284,30 +305,85 @@ export const FormContainer = styled.div`
 `
 
 export const PaymentContainer = styled.div`
-    background-color: #f3f1f1;
-    width: 80%;
+    background-color: #fae1d1;
+    border-radius: 10px;
+    width: 95%;
     margin: auto;
-    padding: 30px;
-    h3{
-        text-align: center ;
-        font-weight: bold;
-        font-size: 1.2rem;
+    display: flex;
+    input{
+        background-color: white;
+    }
+    @media(max-width:768px){
+        display: block;
+        width: 100%;
         padding: 10px;
+    }
+    .address-details{
+        width: 50%;
+        border-right: 0.5px #d0cdcd solid;
+        @media(max-width:768px){
+        border-right: none;
+        width: 100%;
     }
     .formAddressDetails{
         padding: 20px;
-        display: flex;
+        display: block;
         justify-content: center;
         h4{
             font-size: 1rem;
             text-align: start;
         }
-        .input-payment-details{
-            padding: 20px;
-            .input-payment-field{
-                background-color: white;
-            }
+        @media(max-width:768px){
+        width: 100%;
         }
+        .input-payment-details{
+            margin: 5px;
+            .input-payment-field{
+                margin: 5px;
+                @media(max-width:768px){
+                    margin: 3px;
+        }
+                
+            }
+            @media(max-width:768px){
+                margin-inline: 0;
+        }
+        }
+    }
+    }
+    .payment-details{
+        padding: 20px;
+        margin: 5px;
+        width: 50%;
+        @media(max-width:768px){
+        width: 100%;
+    }
+    }
+    h3{
+        text-align: center ;
+        font-weight: bold;
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+`
+export const OrderSummaryContainer = styled.div`
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 20px;
+    h3{
+        font-weight: bold;
+        padding: 10px;
+    }
+    .background-table-order-summary{
+        background-color: white;
+        width: fit-content;
+        margin: auto;
+        border: solid 1px black;
+        box-shadow: 3px 3px 10px grey;
+        @media(max-width: 600px){
+        width: auto;
+    }
     }
 `
 
@@ -322,12 +398,11 @@ export const ConfirmationContainer = styled.div`
     }
 `
 
-
-
 export const FooterContainer = styled.div`
     background-color: black;
     color: #b9b6b6;
-    letter-spacing: .2rem;
+    bottom: 0;
+    width: 100%;
     .footer-details-container{
         display: flex;
         justify-content: space-around;
@@ -344,16 +419,14 @@ export const FooterContainer = styled.div`
         }
     }
     .footer-hours-details{
-        padding: 20px;
+        padding: 10px;
         text-align: center;
-        border: dotted 0.1px white;
-        margin: 20px;
+        margin: 10px;
         h5{
-            padding: 10px; 
+            padding: 10px;
         }
         p{
             padding-left: 10px;
-            letter-spacing: 0rem;
         }
         .footer-subtitle{
             font-weight: bold;
@@ -362,7 +435,7 @@ export const FooterContainer = styled.div`
         }
     }
     .footer-developer-container{
-        padding: 20px;
+        padding: 10px;
         text-align: center;
         font-size: 0.75rem;
     }

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Divider } from '@chakra-ui/react';
-import { MenuCategory, MenuTitle } from './Style';
+import { MenuCategory } from './Style';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 
 
 const MenuContent = () => {
-    const { category } = useParams();
+    const { category, id } = useParams();
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -24,7 +24,6 @@ const MenuContent = () => {
                             .filter(product => product.category.toLowerCase() === category.toLowerCase())
                         : snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-                console.log('Products: ', filteredProducts);
                 setProducts(filteredProducts);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -36,9 +35,8 @@ const MenuContent = () => {
 
     return (
         <div id="menu">
-            <MenuTitle>Menu</MenuTitle>
             <MenuCategory>
-                <h3>Pizzas</h3>
+                <h3 className='menu-title'>PIZZAS</h3>
                 <div className='menu-product'>
                     {products.map((p) => {
                         if (p.category === `pizza`) {
@@ -49,7 +47,7 @@ const MenuContent = () => {
                                             <h4>{p.name}</h4>
                                             <p className='text-description'>{p.description}</p>
                                         </div>
-                                        <p>{p.price} DKK</p>
+                                        <p className='text-price'>{p.price} DKK</p>
                                     </div>
                                     <Divider />
                                 </>
@@ -57,7 +55,7 @@ const MenuContent = () => {
                         }
                     })}
                 </div>
-                <h3>Calzone</h3>
+                <h3 className='menu-title'>CALZONE</h3>
                 <div className='menu-product'>
                     {products.map((p) => {
                         if (p.category === `calzone`) {
@@ -68,7 +66,7 @@ const MenuContent = () => {
                                             <h4>{p.name}</h4>
                                             <p className='text-description'>{p.description}</p>
                                         </div>
-                                        <p>{p.price} DKK</p>
+                                        <p className='text-price'>{p.price} DKK</p>
                                     </div>
                                     <Divider />
                                 </>
@@ -76,7 +74,7 @@ const MenuContent = () => {
                         }
                     })}
                 </div>
-                <h3>Pastas</h3>
+                <h3 className='menu-title'>PASTAS</h3>
                 <div className='menu-product'>
                     {products.map((p) => {
                         if (p.category === `pasta`) {
@@ -87,7 +85,7 @@ const MenuContent = () => {
                                             <h4>{p.name}</h4>
                                             <p className='text-description'>{p.description}</p>
                                         </div>
-                                        <p>{p.price} DKK</p>
+                                        <p className='text-price'>{p.price} DKK</p>
                                     </div>
                                     <Divider />
                                 </>
@@ -95,7 +93,7 @@ const MenuContent = () => {
                         }
                     })}
                 </div>
-                <h3>Desserts</h3>
+                <h3 className='menu-title'>DESSERTS</h3>
                 <div className='menu-product'>
                     {products.map((p) => {
                         if (p.category === `dessert`) {
@@ -106,7 +104,7 @@ const MenuContent = () => {
                                             <h4>{p.name}</h4>
                                             <p className='text-description'>{p.description}</p>
                                         </div>
-                                        <p>{p.price} DKK</p>
+                                        <p className='text-price'>{p.price} DKK</p>
                                     </div>
                                     <Divider />
                                 </>

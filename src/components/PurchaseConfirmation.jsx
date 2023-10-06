@@ -1,10 +1,11 @@
 import React from 'react'
 import { BodyIndex, ConfirmationContainer } from './Style'
-import { useParams } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 
 const PurchaseConfirmation = () => {
-  const { email } = useParams();
+  const { email} = useParams();
+
 
 
   return (

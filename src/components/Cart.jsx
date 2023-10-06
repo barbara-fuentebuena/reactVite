@@ -22,7 +22,7 @@ const Cart = () => {
       {cart.length === 0 ? (
         <VStack spacing={4}>
           <Text fontSize="lg">Your cart is empty</Text>
-          <Button variant='outline' colorScheme='teal' mt={4} ml={4} onClick={() => navigate('/')}>Back to home page</Button>
+          <Button variant='outline' colorScheme='orange' mt={4} ml={4} onClick={() => navigate('/')}>Back to home page</Button>
         </VStack>
       ) : (
         <VStack spacing={4}>
@@ -34,11 +34,13 @@ const Cart = () => {
             />
           ))}
           <Text fontSize="lg">Total: DKK {totalPrice.toFixed(2)}</Text>
-          <Button colorScheme="red" onClick={clear}>
+          <Button colorScheme="orange" 
+          variant='outline'
+          onClick={clear}>
             Clear cart
           </Button>
           <Link to={`/sendorder`}>
-            <Button colorScheme="green">
+            <Button colorScheme="orange">
               Confirm purchase</Button>
           </Link>
         </VStack>

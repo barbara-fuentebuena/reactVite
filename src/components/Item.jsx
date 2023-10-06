@@ -1,14 +1,17 @@
 import React from 'react'
-import { Card, CardBody, Image, Stack, Heading, Text, Divider, CardFooter, ButtonGroup, Button } from '@chakra-ui/react';
+import { Card, CardBody, Image, Stack, Heading, Text, Divider, CardFooter, ButtonGroup, Button, useMediaQuery } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
-const Item = ({ id, name, price }) => {
+const Item = ({ id, name, price, image }) => {
+
+  const [isTablet] = useMediaQuery("(max-width: 1000px)");
+  const [isMobile] = useMediaQuery("(max-width: 600px)");
+
   return (
-      <Card className='card' maxW='sm'>
+      <Card className='card' maxW='300px'>
         <CardBody>
           <Image
-            src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-            alt={'Green double couch with wooden legs'}
+            src={image}
             borderRadius='lg'
           />
           <Stack mt='6' spacing='3'>
@@ -21,8 +24,8 @@ const Item = ({ id, name, price }) => {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing='2'>
-            <Link to={`/product/${id}`} onClick={() => console.log("Clicked with ID:", id)}>
-              <Button variant='solid' colorScheme='gray'>
+            <Link to={`/product/${id}`}>
+              <Button variant='solid' colorScheme='orange'>
                 View details
               </Button>
             </Link>

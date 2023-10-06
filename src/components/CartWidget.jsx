@@ -5,11 +5,14 @@ import { useContext } from 'react';
 import { Box, Icon, Text } from "@chakra-ui/react";
 
 
+
 const CartWidget = () => {
   const { cart, getTotalQuantity } = useContext(CartContext);
 
+
+
   return (
-    <>
+
       <Link to="/cart">
         <Box display="flex" alignItems="center">
           <Icon boxSize={6} />
@@ -21,8 +24,9 @@ const CartWidget = () => {
           <Text ml={2}>{getTotalQuantity()}</Text> 
         </Box>
       </Link>
-    </>
+
   )
 }
+
 
 export default CartWidget

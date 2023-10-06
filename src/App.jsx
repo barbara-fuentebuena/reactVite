@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Cart from './components/Cart'
 import { ShoppingCartProvider } from './context/ShoppingCartContext'
-
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SendOrder from './components/SendOrder'
@@ -15,6 +14,7 @@ import PurchaseConfirmation from './components/PurchaseConfirmation'
 import BookingForm from './components/BookingForm'
 import BookingConfirmation from './components/BookingConfirmation'
 import ModalMenu from './components/ModalMenu'
+import './styles/styles.css'; 
 
 function App() {
 
@@ -45,7 +45,9 @@ function App() {
           </Routes>
           <Footer />
 
-          <ToastContainer/>
+          <ToastContainer 
+          autoClose={1000}
+          hideProgressBar />
 
         </ShoppingCartProvider>
       </BrowserRouter>

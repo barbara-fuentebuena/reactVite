@@ -26,6 +26,7 @@ const NavBar = () => {
     }
   };
 
+
   return (
     <>
       <Header>
@@ -78,9 +79,9 @@ const NavBar = () => {
               </Menu>
             </div>
           </div>
-          <div className='cart'><Link to={"/cart"}><CartWidget /></Link></div>
+          <div className='cart'><Link to={"/cart"}><CartWidget/></Link></div>
         </Nav>
-      </Header>
+      </Header>   
     </>
   )
 }

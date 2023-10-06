@@ -1,7 +1,6 @@
 import React from 'react'
 import { NumberInput, NumberInputField, NumberDecrementStepper, NumberIncrementStepper, NumberInputStepper, Input } from '@chakra-ui/react';
 import { PaymentContainer } from './Style';
-import { styled } from 'styled-components';
 
 const Address = ({ address, setAddress }) => {
 
@@ -12,19 +11,19 @@ const Address = ({ address, setAddress }) => {
 
     return (
         <PaymentContainer>
-            <div>
-                <h3>Your address</h3>
+            <div className='address-details'>
                 <div className='formAddressDetails'>
+                    <h3>Your address</h3>
                     <div className='input-payment-details'>
-                        <Input margin={2} 
-                        className='input-payment-field'
+                        <Input
+                            className='input-payment-field'
                             type='text'
                             placeholder='Street name'
                             value={address.street}
                             onChange={(e) => handleInputChange(e, 'street')}
                         />
-                        <Input margin={2}
-                        className='input-payment-field'
+                        <Input
+                            className='input-payment-field'
                             type='number'
                             placeholder='Street number'
                             value={address.streetNumber}
@@ -32,15 +31,15 @@ const Address = ({ address, setAddress }) => {
                         />
                     </div>
                     <div className='input-payment-details'>
-                        <Input margin={2}
-                        className='input-payment-field'
+                        <Input
+                            className='input-payment-field'
                             type='number'
                             placeholder='Postal code'
                             value={address.postalCode}
                             onChange={(e) => handleInputChange(e, 'postalCode')}
                         />
-                        <Input margin={2}
-                        className='input-payment-field'
+                        <Input
+                            className='input-payment-field'
                             type='text'
                             placeholder='City'
                             value={address.city}
@@ -49,7 +48,7 @@ const Address = ({ address, setAddress }) => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className='payment-details'>
                 <h3>Payment Information</h3>
                 <div className='formAddressDetails'>
                     <div className='input-payment-details'>
@@ -64,7 +63,7 @@ const Address = ({ address, setAddress }) => {
                     <div className='input-payment-details'>
                         <h4>Name on card</h4>
                         <Input type="text"
-                        className='input-payment-field'
+                            className='input-payment-field'
                             placeholder='Insert name on card'
                             value={address.cardName}
                             onChange={(e) => handleInputChange(e, 'cardName')}
@@ -76,8 +75,8 @@ const Address = ({ address, setAddress }) => {
                     <div className='formAddressDetails'>
                         <div className='input-payment-details'>
                             <h4>Day</h4>
-                            <NumberInput 
-                            className='input-payment-field'defaultValue={1} min={1} max={31}>
+                            <NumberInput
+                                className='input-payment-field' defaultValue={1} min={1} max={31}>
                                 <NumberInputField />
                                 <NumberInputStepper>
                                     <NumberIncrementStepper />
@@ -87,7 +86,7 @@ const Address = ({ address, setAddress }) => {
                         </div>
                         <div className='input-payment-details'>
                             <h4>Month</h4>
-                            <NumberInput className='input-payment-field'defaultValue={1} min={1} max={12}
+                            <NumberInput className='input-payment-field' defaultValue={1} min={1} max={12}
 
                             >
                                 <NumberInputField />
@@ -100,7 +99,7 @@ const Address = ({ address, setAddress }) => {
                         <div className='input-payment-details'>
                             <h4>CVV/CVC </h4>
                             <Input type="number"
-                            className='input-payment-field'
+                                className='input-payment-field'
                                 placeholder='Insert CVC'
                                 value={address.cardCode}
                                 onChange={(e) => handleInputChange(e, 'cardCode')}

@@ -15,8 +15,13 @@ const ItemCount = ({ onAdd }) => {
     };
 
     const handleAdd = () => {
-        onAdd(quantity);
-        clear();
+        if (quantity > 0) {
+            onAdd(quantity);
+            toast.success('Product added to cart');
+            clear();
+        } else {
+            toast.error('Select quantity');
+        }
     };
 
     const handleIncrement = () => {
@@ -37,14 +42,15 @@ const ItemCount = ({ onAdd }) => {
 
             </div>
             <div className='buttons-cart'>
-                <Button colorScheme="blue" onClick={clear} mr={2}>
+            
+                <Button colorScheme="orange" variant='outline'
+                onClick={clear} m={2}>
                     Clear
                 </Button>
-                <Button colorScheme="green" onClick={handleAdd} mr={2}>
+                <Button colorScheme="orange" onClick={handleAdd} m={2}>
                     Add to cart
                 </Button>
             </div>
-
         </ButtonsCalculator>
     )
 }

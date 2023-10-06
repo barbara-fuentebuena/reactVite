@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { Card, CardBody, Image, Stack, Heading, Text, CardFooter, Button,
+import {
+  Card, CardBody, Image, Stack, Heading, Text, CardFooter, Button, useMediaQuery
 } from '@chakra-ui/react';
 import { BodyIndex, CardDetailContainer } from './Style';
 import ItemCount from './ItemCount';
@@ -11,7 +12,7 @@ const ItemDetail = ({ product }) => {
   if (!product) {
     return <div>Product not found.</div>;
   }
-  
+
 
   const { addItem } = useContext(CartContext);
   const navigate = useNavigate();
@@ -31,56 +32,61 @@ const ItemDetail = ({ product }) => {
     navigate('/cart');
   };
 
+  const [isTablet] = useMediaQuery("(max-width: 1000px)");
+  const [isMobile] = useMediaQuery("(max-width: 600px)");
+
   return (
     <BodyIndex>
       <CardDetailContainer>
-      <Card
-        direction={{ base: 'column', sm: 'row' }}
-        overflow='hidden'
-        variant='outline'
-      >
-        <Image
-          objectFit='cover'
-          maxW={{ base: '100%', sm: '200px' }}
-          src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-          alt={product.name}
-        />
-        <Stack>
-          <CardBody>
-            <Heading size='md'>{product.name}</Heading>
-            <Text py='2'>{product.description}</Text>
-            <Text color='blue.600' fontSize='2xl'>
-              DKK {product.price}
-            </Text>
-          </CardBody>
-          <CardFooter display={'block'}>
-            {addedQuantity === 0 ? (
-              <ItemCount onAdd={handleAddToCart} />
-            ) : (
-              <>
-                <Button
-                  variant='solid'
-                  colorScheme='blue'
-                  mt={4}
-                  onClick={handleFinishPurchase}
-                >
-                  Finish purchase
-                </Button>
-                <Button
-                  variant='outline'
-                  colorScheme='teal'
-                  mt={4}
-                  ml={4}
-                  onClick={() => navigate(`/products`)}
-                >
-                  Continue shopping
-                </Button>
-              </>
-            )}
-          </CardFooter>
-        </Stack>
-      </Card>
-    </CardDetailContainer>
+        <Card
+          direction={{ base: 'column', sm: 'row' }}
+          overflow='hidden'
+          variant='outline'
+        >
+          <Image
+            maxW={{ base: '100%', sm: '400px' }}
+            src={product.image}
+            alt={product.name}
+            boxSize={isMobile ? 0 : 400}
+          />
+          <Stack>
+            <CardBody>
+              <Heading size='md'>{product.name}</Heading>
+              <Text py='2' maxW={250}>{product.description}</Text>
+              <Text color='blue.600' fontSize='2xl'>
+                DKK {product.price}
+              </Text>
+            </CardBody>
+            <CardFooter display={'block'}>
+              {addedQuantity === 0 ? (
+                <ItemCount onAdd={handleAddToCart} />
+
+              ) : (
+
+                <>
+                  <Button
+                    variant='outline'
+                    colorScheme='orange'
+                    m={2}
+                    onClick={() => navigate(`/products`)}
+                  >
+                    Continue shopping
+                  </Button>
+                  <Button
+                    variant='solid'
+                    colorScheme='orange'
+                    m={2}
+                    onClick={handleFinishPurchase}
+                  >
+                    Finish purchase
+                  </Button>
+
+                </>
+              )}
+            </CardFooter>
+          </Stack>
+        </Card>
+      </CardDetailContainer>
     </BodyIndex>
   );
 };

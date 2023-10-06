@@ -12,14 +12,7 @@ const Footer = () => {
                     <h5>☎️ 91707070</h5>
                 </div>
                 <div className='footer-hours-details'>
-                <h5>🕘 Opening hours</h5>
-                        <p className='footer-subtitle'>Lunch</p>
-                        <p>Monday - Thrusday: 11:00 to 15:00</p>
-                        <p>Friday - Saturday: 11:00 to 15:00</p>
-                        <p>Sunday: CLOSED</p>
-                        <p className='footer-subtitle'>Dinner</p>
-                        <p>Monday - Thrusday: 17:00 to 22:00</p>
-                        <p>Friday - Sunday: 17:00 to 00:00</p>
+                <h5>🕘 Opening hours: Everyday 11-23 hs</h5>
                 </div>
                 </div>
                 <h6 className='footer-developer-container'>

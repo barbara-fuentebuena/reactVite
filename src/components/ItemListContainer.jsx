@@ -23,7 +23,6 @@ const ItemListContainer = () => {
                 .filter(product => product.category.toLowerCase() === category.toLowerCase())
             : snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-        console.log('Products: ', filteredProducts);
         setProducts(filteredProducts);
       } catch (error) {
         console.error('Error fetching data:', error);
