@@ -75,7 +75,7 @@ const SendOrder = () => {
         <BodyIndex>
             <FormContainer>
             <h1>CHECK OUT</h1>
-            <h2>Your are almost there!</h2>
+            <h2>You are almost there!</h2>
                 <form onSubmit={handleSubmit}>
                     <div className='formTextDetails'>
                         <h3>Full name *</h3>

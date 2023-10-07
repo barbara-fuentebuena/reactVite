@@ -225,6 +225,9 @@ export const MenuCategory = styled.div`
         font-weight: 900;
         margin-bottom: 20px;
         margin-top: 20px;
+        @media(max-width:400px){
+            font-size:3.10rem;
+        }
     }
     .menu-product{
         padding: 10px;
