@@ -94,8 +94,8 @@ export const BodyIndex = styled.div`
 
 export const BgDiv = styled.div`
     position:absolute;
-    background-color:black;
-    opacity: 80%;
+    background-color:#fb6407;
+    opacity: 95%;
     width:100%;
     top:-2000px;
     left:-2000px;
@@ -188,8 +188,9 @@ export const MainBanner = styled.div`
         h1{
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
-        font-size: 3.5rem;
-        color: white;
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 2px 2px 2px black;
         @media(max-width:768px){
             font-size: 2rem;
         }
@@ -204,6 +205,8 @@ export const MainBanner = styled.div`
         font-family: 'Montserrat', sans-serif;
         &:hover{
             background-color: #ebeae9d3;
+            color: #fb6407;
+            font-weight: bold;
         }
         @media(max-width:768px){
             font-size: 1rem;
@@ -225,6 +228,7 @@ export const MenuCategory = styled.div`
         font-weight: 900;
         margin-bottom: 20px;
         margin-top: 20px;
+        text-shadow: 2px 2px 2px grey;
         @media(max-width:400px){
             font-size:3.10rem;
         }
@@ -290,6 +294,7 @@ export const FormContainer = styled.div`
         text-align: start;
         margin-left: 20px;
         font-family: 'Montserrat', sans-serif;
+        text-shadow: 2px 2px 2px grey;
     }
     h2{
         font-family: 'Montserrat', sans-serif;

@@ -9,7 +9,7 @@ const ImageEffect = ({ imageUrl }) => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(toggleGrayScale, 100); 
+    const intervalId = setInterval(toggleGrayScale, 200); 
     return () => clearInterval(intervalId);
   }, []);
 

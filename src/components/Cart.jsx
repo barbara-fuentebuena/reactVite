@@ -4,6 +4,7 @@ import { useCartContext } from "../context/ShoppingCartContext";
 import CartItem from "./CartItem";
 import { Box, Button, Text, VStack } from "@chakra-ui/react";
 import { BodyIndex } from './Style';
+import BackgroundImage from '../assets/img/background-order-summary.jpeg'
 
 
 
